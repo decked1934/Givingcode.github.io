@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>vue-router插件 | Don&#39;t BB,show me the code!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Dont't BB,show me the code!" />
+  
+  <meta name="description" content="简介vue-router就是SPA（单页应用）的路径管理器。通俗的说，vue-router就是我们WebApp的链接路径管理系统。它跟前端的a标签区别是什么？因为我们用Vue做的是单页应用，就相当于只有一个主的index.html页面，所以你写的a标签是不起作用的，你必须使用vue-router来对路径进行管理。 安装vue-routervue-router是一个插件，所以需要用npm来进行安装的">
+<meta name="keywords" content="All,web前端,vue,路由">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-router插件">
+<meta property="og:url" content="http://NicolasGui.github.io/2017/01/26/vue-router/index.html">
+<meta property="og:site_name" content="Don&#39;t BB,show me the code!">
+<meta property="og:description" content="简介vue-router就是SPA（单页应用）的路径管理器。通俗的说，vue-router就是我们WebApp的链接路径管理系统。它跟前端的a标签区别是什么？因为我们用Vue做的是单页应用，就相当于只有一个主的index.html页面，所以你写的a标签是不起作用的，你必须使用vue-router来对路径进行管理。 安装vue-routervue-router是一个插件，所以需要用npm来进行安装的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-21T03:04:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue-router插件">
+<meta name="twitter:description" content="简介vue-router就是SPA（单页应用）的路径管理器。通俗的说，vue-router就是我们WebApp的链接路径管理系统。它跟前端的a标签区别是什么？因为我们用Vue做的是单页应用，就相当于只有一个主的index.html页面，所以你写的a标签是不起作用的，你必须使用vue-router来对路径进行管理。 安装vue-routervue-router是一个插件，所以需要用npm来进行安装的">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+	
+	
+	
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Nicolas&#39;s blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Nicolas&#39;s blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        如果第一次失败了，那这是1.0版，继续加油
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Nicolas" target="_blank" href="//htmler.cn">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/NicolasGui">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/512567097">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-vue-router" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      vue-router插件
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/All/">All</a>
+                  
+                      <a href="/categories/vue/">vue</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-01-26
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>vue-router就是SPA（单页应用）的路径管理器。通俗的说，vue-router就是我们WebApp的链接路径管理系统。它跟前端的a标签区别是什么？因为我们用Vue做的是单页应用，就相当于只有一个主的index.html页面，所以你写的a标签是不起作用的，你必须使用vue-router来对路径进行管理。</p>
+<h3 id="安装vue-router"><a href="#安装vue-router" class="headerlink" title="安装vue-router"></a>安装vue-router</h3><p>vue-router是一个插件，所以需要用npm来进行安装的。在命令行工具里面，进入你的项目目录，输入下面命令。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-router --save</span><br></pre></td></tr></table></figure></p>
+<p>如果你是通过vue-cli构建项目时已经选择安装了vue-router，那就不需要重复安装。如果npm install vue-router –save安装比较慢的话，切换到淘宝镜像然后使用cnpm install vue-router –save，切换方法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></p>
+<h3 id="vue-router文件解读"><a href="#vue-router文件解读" class="headerlink" title="vue-router文件解读"></a>vue-router文件解读</h3><p>安装完vue-router，我们先在src/router/路径下找到index.js文件，这个js就是路由的核心文件，打开<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import Vue from <span class="string">'vue'</span>   //引入Vue</span><br><span class="line">import Router from <span class="string">'vue-router'</span>  //引入vue-router</span><br><span class="line">import Hello from <span class="string">'@/components/Hello'</span>  //引入默认的Hello.vue组件</span><br><span class="line">import Test from <span class="string">'@/components/Test'</span>  //引入测试vue组件</span><br><span class="line"></span><br><span class="line">Vue.use(Router)  //全局使用Router</span><br><span class="line"> </span><br><span class="line"><span class="built_in">export</span> default new Router(&#123;//配置路由</span><br><span class="line">  routes: [              </span><br><span class="line">    &#123;                    //每一个对象代表一个路由</span><br><span class="line">      path: <span class="string">'/'</span>,         //链接路径</span><br><span class="line">      name: <span class="string">'Hello'</span>,     //路由名称，</span><br><span class="line">      component: Hello   //对应的组件模板</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">      path:<span class="string">'/Test'</span>,</span><br><span class="line">      name:<span class="string">'Test'</span>,</span><br><span class="line">      component:Test</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>然后我们就可以在App.vue里面通过router-view来展示我们的组件内容</p>
+<h3 id="router-link"><a href="#router-link" class="headerlink" title="router-link"></a>router-link</h3><p>我们说router是做路径管理的，那么我们就可以通过router-link来控制组件的切换<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link to=<span class="string">"组件路径"</span>&gt;链接内容&lt;/router-link&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在这里解释一下，to：是我们的导航路径，要填写的是你在router/index.js文件里配置的path值，如果要导航到默认首页，只需要写成  to=”/” ，比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">   &lt;li&gt;&lt;router-link to=<span class="string">"/"</span>&gt;首页&lt;/router-link&gt;&lt;/li&gt;</span><br><span class="line">   &lt;li&gt;&lt;router-link to=<span class="string">"/Test"</span>&gt;Test页面&lt;/router-link&gt;&lt;/li&gt;   </span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure></p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年08月21日 11:04</p>
+        <p>原始链接： <a class="post-url" href="/2017/01/26/vue-router/" title="vue-router插件">http://NicolasGui.github.io/2017/01/26/vue-router/</a></p>
+        <footer>
+            <a href="http://NicolasGui.github.io">
+                <img src="/images/logo.png" alt="Nicolas">
+                Nicolas
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        不信你敢扫~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.png" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.png">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.png">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://NicolasGui.github.io/2017/01/26/vue-router/&title=《vue-router插件》 — Don't BB,show me the code!&pic=http://NicolasGui.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://NicolasGui.github.io/2017/01/26/vue-router/&title=《vue-router插件》 — Don't BB,show me the code!&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://NicolasGui.github.io/2017/01/26/vue-router/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue-router插件》 — Don't BB,show me the code!&url=http://NicolasGui.github.io/2017/01/26/vue-router/&via=http://NicolasGui.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://NicolasGui.github.io/2017/01/26/vue-router/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://NicolasGui.github.io/2017/01/26/vue-router/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/All/" class="color4">All</a>
+      
+    <a href="/tags/web前端/" class="color1">web前端</a>
+      
+    <a href="/tags/vue/" class="color4">vue</a>
+      
+    <a href="/tags/路由/" class="color3">路由</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装vue-router"><span class="post-toc-text">安装vue-router</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vue-router文件解读"><span class="post-toc-text">vue-router文件解读</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#router-link"><span class="post-toc-text">router-link</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2017/02/24/使用mac自带阿帕奇/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          使用mac自带阿帕奇
+        
+      </span>
+    </a>
+  
+  
+</nav>
+
+
+
+    
+        
+  <!-- Valine Comments -->
+  <div class="comments vcomment" id="comments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+  <!-- Valine Comments script -->
+  <script>
+      var GUEST_INFO = ['nick','mail','link'];
+      var guest_info = 'nick,mail'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+      });
+      new Valine({
+          el: '#comments',
+          notify: 'false' == 'true',
+          verify: 'false' == 'true',
+          appId: "6x49PQdS7yFOwmbDyeyib2eI-gzGzoHsz",
+          appKey: "SR793Ao76oLNRRSMVEfoxElA",
+          avatar: "mm",
+          placeholder: "Just go go",
+          guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+          pageSize: "10"
+      })
+  </script>
+  <!-- Valine Comments end -->
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+      
+    <div id="footer-info" class="inner">
+        <div class="top">
+            
+
+        </div>
+      <p>
+      &copy; 2018 Nicolas<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://NicolasGui.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/All/">All</a><a class="category-link" href="/categories/All/Hexo/">Hexo</a><a class="category-link" href="/categories/All/mac/">mac</a><a class="category-link" href="/categories/All/tools/">tools</a><a class="category-link" href="/categories/All/vue/">vue</a><a class="category-link" href="/categories/All/面试/">面试</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/All/" style="font-size: 20px;">All</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/js/" style="font-size: 12.5px;">js</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/vue/" style="font-size: 12.5px;">vue</a> <a href="/tags/web前端/" style="font-size: 17.5px;">web前端</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/开发工具/" style="font-size: 10px;">开发工具</a> <a href="/tags/服务器/" style="font-size: 10px;">服务器</a> <a href="/tags/路由/" style="font-size: 10px;">路由</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/All/" style="font-size: 20px;">All</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/js/" style="font-size: 12.5px;">js</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/vue/" style="font-size: 12.5px;">vue</a> <a href="/tags/web前端/" style="font-size: 17.5px;">web前端</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/开发工具/" style="font-size: 10px;">开发工具</a> <a href="/tags/服务器/" style="font-size: 10px;">服务器</a> <a href="/tags/路由/" style="font-size: 10px;">路由</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

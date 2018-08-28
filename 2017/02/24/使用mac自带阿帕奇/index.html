@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用mac自带阿帕奇 | Don&#39;t BB,show me the code!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Dont't BB,show me the code!" />
+  
+  <meta name="description" content="简介Apache对于前端程序员来说是必不可少的一款web服务器，Mac系统自身带了apache，可以直接用来搭建本地web服务器，配置过程相对比较简单，本文将做简要描述，开始吧 启动Apachemac是默认自动启动Apache的，判断mac是否启动了Apache很简单，浏览器地址栏输入http://127.0.0.1   回车即可，如果页面显示It works！证明ok，介绍几个常用命令： 123">
+<meta name="keywords" content="All,mac,服务器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用mac自带阿帕奇">
+<meta property="og:url" content="http://NicolasGui.github.io/2017/02/24/使用mac自带阿帕奇/index.html">
+<meta property="og:site_name" content="Don&#39;t BB,show me the code!">
+<meta property="og:description" content="简介Apache对于前端程序员来说是必不可少的一款web服务器，Mac系统自身带了apache，可以直接用来搭建本地web服务器，配置过程相对比较简单，本文将做简要描述，开始吧 启动Apachemac是默认自动启动Apache的，判断mac是否启动了Apache很简单，浏览器地址栏输入http://127.0.0.1   回车即可，如果页面显示It works！证明ok，介绍几个常用命令： 123">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-21T03:04:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用mac自带阿帕奇">
+<meta name="twitter:description" content="简介Apache对于前端程序员来说是必不可少的一款web服务器，Mac系统自身带了apache，可以直接用来搭建本地web服务器，配置过程相对比较简单，本文将做简要描述，开始吧 启动Apachemac是默认自动启动Apache的，判断mac是否启动了Apache很简单，浏览器地址栏输入http://127.0.0.1   回车即可，如果页面显示It works！证明ok，介绍几个常用命令： 123">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+	
+	
+	
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Nicolas&#39;s blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Nicolas&#39;s blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        如果第一次失败了，那这是1.0版，继续加油
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Nicolas" target="_blank" href="//htmler.cn">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/NicolasGui">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/512567097">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-使用mac自带阿帕奇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      使用mac自带阿帕奇
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/All/">All</a>
+                  
+                      <a href="/categories/mac/">mac</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-02-24
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Apache对于前端程序员来说是必不可少的一款web服务器，Mac系统自身带了apache，可以直接用来搭建本地web服务器，配置过程相对比较简单，本文将做简要描述，开始吧</p>
+<h3 id="启动Apache"><a href="#启动Apache" class="headerlink" title="启动Apache"></a>启动Apache</h3><p>mac是默认自动启动Apache的，判断mac是否启动了Apache很简单，浏览器地址栏输入<a href="http://127.0.0.1" target="_blank" rel="noopener">http://127.0.0.1</a>   回车即可，如果页面显示It works！证明ok，介绍几个常用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apachectl start   //开启apache</span><br><span class="line"></span><br><span class="line">sudo apachectl restart   //重启apache</span><br><span class="line"></span><br><span class="line">sudo apachectl stop    //关闭apache:</span><br></pre></td></tr></table></figure>
+<h3 id="php版本检查"><a href="#php版本检查" class="headerlink" title="php版本检查"></a>php版本检查</h3><p>在新的Mac High Sierra中对php版本进行了升级，所以先确定你mac的php版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br></pre></td></tr></table></figure></p>
+<p>如果提示PHP 7.1.7 (cli) (built: Jul 15 2017 18:08:09) ( NTS )，则代表php是7.x版本的</p>
+<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>ps：在进行一下操作时候，先在终端执行sudo apachectl stop停止apache服务</p>
+<h4 id="更改work-space"><a href="#更改work-space" class="headerlink" title="更改work space"></a>更改work space</h4><p>Apache在Windows下默认work space为htdocs，在mac下有所区别，路径为：/Library/WebServer/Documents<br>因此我们需要把前端代码拷贝到该目录进行测试，但是该目录藏这么深在实际使用过程中显然是比较麻烦的，因此接下来我们通过修改阿帕奇主配置文件httpd.conf来指定work space，步骤如下：<br>mac配置文件目录为：/etc ，默认是隐藏的，因此咱们在终端里面执行：open /etc/apache2/  就可以打开Apache主目录，找到httpd.conf文件，使用文本编辑器打开该文件， 如果不想那么麻烦的话可以使用vi编辑，命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/apache2/httpd.conf</span><br></pre></td></tr></table></figure>
+<p>接下来按一下键盘上的i键，底部提示insert……便可以移动光标进行编辑了<br>编辑以下内容，原本为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DocumentRoot <span class="string">"/Library/WebServer/Documents"</span></span><br><span class="line">&lt;Directory <span class="string">"/Library/WebServer/Documents"</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>修改为自定义目录，比如我改成根目录的sites文件夹，那就是：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DocumentRoot <span class="string">"/Users/用户名/Sites"</span></span><br><span class="line">&lt;Directory <span class="string">"/Users/用户名/Sites"</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>ps:用户名即你mac的用户名，比如我的用户名是nicolas，那改制后应该是：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DocumentRoot <span class="string">"/Users/nicolas/Sites"</span></span><br><span class="line">&lt;Directory <span class="string">"/Users/nicolas/Sites"</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这样子的话我们就可以把Apache的work space更改到根路径下的sites了</p>
+<h4 id="更改默认端口"><a href="#更改默认端口" class="headerlink" title="更改默认端口"></a>更改默认端口</h4><p>跟更改默认工作空间一样的方式打开httpd.conf，找到Listen 80这一行，将80改为你需要的端口就好</p>
+<h4 id="显示文件目录"><a href="#显示文件目录" class="headerlink" title="显示文件目录"></a>显示文件目录</h4><p>Apache在没有index的情况下默认不会显示文件目录，可以通过修改httpd.conf实现文件列表的展示，方便调试操作如下：<br>将httpd.conf里面Options FollowSymLinks Multiviews之后加上Indexes，修改之后为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Options FollowSymLinks Multiviews Indexes</span><br></pre></td></tr></table></figure></p>
+<h4 id="添加php7的支持"><a href="#添加php7的支持" class="headerlink" title="添加php7的支持"></a>添加php7的支持</h4><p>在里面找到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#LoadModule php7_module libexec/apache2/libphp7.so</span><br></pre></td></tr></table></figure></p>
+<p>删除前面的#，修改之后是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LoadModule php7_module libexec/apache2/libphp7.so</span><br></pre></td></tr></table></figure></p>
+<p>接下来修改修改servername（必要操作，否则会报错）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#ServerAdmin you@example.com</span><br><span class="line">ServerName localhost</span><br></pre></td></tr></table></figure></p>
+<p>以上操作都完成以后，按下   esc   ，输入  :wq  然后回车<br>紧接着在终端sudo apachectl start即可</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年08月21日 11:04</p>
+        <p>原始链接： <a class="post-url" href="/2017/02/24/使用mac自带阿帕奇/" title="使用mac自带阿帕奇">http://NicolasGui.github.io/2017/02/24/使用mac自带阿帕奇/</a></p>
+        <footer>
+            <a href="http://NicolasGui.github.io">
+                <img src="/images/logo.png" alt="Nicolas">
+                Nicolas
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        不信你敢扫~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.png" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.png">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.png">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://NicolasGui.github.io/2017/02/24/使用mac自带阿帕奇/&title=《使用mac自带阿帕奇》 — Don't BB,show me the code!&pic=http://NicolasGui.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://NicolasGui.github.io/2017/02/24/使用mac自带阿帕奇/&title=《使用mac自带阿帕奇》 — Don't BB,show me the code!&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://NicolasGui.github.io/2017/02/24/使用mac自带阿帕奇/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用mac自带阿帕奇》 — Don't BB,show me the code!&url=http://NicolasGui.github.io/2017/02/24/使用mac自带阿帕奇/&via=http://NicolasGui.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://NicolasGui.github.io/2017/02/24/使用mac自带阿帕奇/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://NicolasGui.github.io/2017/02/24/使用mac自带阿帕奇/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/All/" class="color4">All</a>
+      
+    <a href="/tags/mac/" class="color4">mac</a>
+      
+    <a href="/tags/服务器/" class="color4">服务器</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#启动Apache"><span class="post-toc-text">启动Apache</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#php版本检查"><span class="post-toc-text">php版本检查</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本配置"><span class="post-toc-text">基本配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#更改work-space"><span class="post-toc-text">更改work space</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#更改默认端口"><span class="post-toc-text">更改默认端口</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#显示文件目录"><span class="post-toc-text">显示文件目录</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#添加php7的支持"><span class="post-toc-text">添加php7的支持</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2017/04/26/前端开发工具/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          前端常用开发工具
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/01/26/vue-router/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">vue-router插件</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        
+  <!-- Valine Comments -->
+  <div class="comments vcomment" id="comments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+  <!-- Valine Comments script -->
+  <script>
+      var GUEST_INFO = ['nick','mail','link'];
+      var guest_info = 'nick,mail'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+      });
+      new Valine({
+          el: '#comments',
+          notify: 'false' == 'true',
+          verify: 'false' == 'true',
+          appId: "6x49PQdS7yFOwmbDyeyib2eI-gzGzoHsz",
+          appKey: "SR793Ao76oLNRRSMVEfoxElA",
+          avatar: "mm",
+          placeholder: "Just go go",
+          guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+          pageSize: "10"
+      })
+  </script>
+  <!-- Valine Comments end -->
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+      
+    <div id="footer-info" class="inner">
+        <div class="top">
+            
+
+        </div>
+      <p>
+      &copy; 2018 Nicolas<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://NicolasGui.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/All/">All</a><a class="category-link" href="/categories/All/Hexo/">Hexo</a><a class="category-link" href="/categories/All/mac/">mac</a><a class="category-link" href="/categories/All/tools/">tools</a><a class="category-link" href="/categories/All/vue/">vue</a><a class="category-link" href="/categories/All/面试/">面试</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/All/" style="font-size: 20px;">All</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/js/" style="font-size: 12.5px;">js</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/vue/" style="font-size: 12.5px;">vue</a> <a href="/tags/web前端/" style="font-size: 17.5px;">web前端</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/开发工具/" style="font-size: 10px;">开发工具</a> <a href="/tags/服务器/" style="font-size: 10px;">服务器</a> <a href="/tags/路由/" style="font-size: 10px;">路由</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/All/" style="font-size: 20px;">All</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/js/" style="font-size: 12.5px;">js</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/vue/" style="font-size: 12.5px;">vue</a> <a href="/tags/web前端/" style="font-size: 17.5px;">web前端</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/开发工具/" style="font-size: 10px;">开发工具</a> <a href="/tags/服务器/" style="font-size: 10px;">服务器</a> <a href="/tags/路由/" style="font-size: 10px;">路由</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

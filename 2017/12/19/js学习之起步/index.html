@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>js学习之起步 | Don&#39;t BB,show me the code!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Dont't BB,show me the code!" />
+  
+  <meta name="description" content="欢迎来到JavaScript学习之路，首先来认识一下web前端三大语言，他们分别是：  HTML：专门编写网页内容的语言 CSS：专门美化网页样式的语言 JavaScript：专门编写网页交互的语言，（输入数据，处理数据，返回结果）   JavaScript的组成 ECMAScript(核心语法) DOM(专门操作网页内容) BOM(专门操作浏览器窗口)  如何使用JavaScript？ 使用浏览">
+<meta name="keywords" content="All,web前端,js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js学习之起步">
+<meta property="og:url" content="http://NicolasGui.github.io/2017/12/19/js学习之起步/index.html">
+<meta property="og:site_name" content="Don&#39;t BB,show me the code!">
+<meta property="og:description" content="欢迎来到JavaScript学习之路，首先来认识一下web前端三大语言，他们分别是：  HTML：专门编写网页内容的语言 CSS：专门美化网页样式的语言 JavaScript：专门编写网页交互的语言，（输入数据，处理数据，返回结果）   JavaScript的组成 ECMAScript(核心语法) DOM(专门操作网页内容) BOM(专门操作浏览器窗口)  如何使用JavaScript？ 使用浏览">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-21T03:04:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js学习之起步">
+<meta name="twitter:description" content="欢迎来到JavaScript学习之路，首先来认识一下web前端三大语言，他们分别是：  HTML：专门编写网页内容的语言 CSS：专门美化网页样式的语言 JavaScript：专门编写网页交互的语言，（输入数据，处理数据，返回结果）   JavaScript的组成 ECMAScript(核心语法) DOM(专门操作网页内容) BOM(专门操作浏览器窗口)  如何使用JavaScript？ 使用浏览">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+	
+	
+	
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Nicolas&#39;s blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Nicolas&#39;s blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        如果第一次失败了，那这是1.0版，继续加油
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Nicolas" target="_blank" href="//htmler.cn">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/NicolasGui">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/512567097">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-js学习之起步" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      js学习之起步
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/All/">All</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-12-19
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>欢迎来到JavaScript学习之路，首先来认识一下web前端三大语言，他们分别是：</p>
+<ul>
+<li>HTML：专门编写网页内容的语言</li>
+<li>CSS：专门美化网页样式的语言</li>
+<li>JavaScript：专门编写网页交互的语言，（输入数据，处理数据，返回结果）</li>
+</ul>
+<hr>
+<h1 id="JavaScript的组成"><a href="#JavaScript的组成" class="headerlink" title="JavaScript的组成"></a>JavaScript的组成</h1><ul>
+<li>ECMAScript(核心语法)</li>
+<li>DOM(专门操作网页内容)</li>
+<li>BOM(专门操作浏览器窗口)</li>
+</ul>
+<h1 id="如何使用JavaScript？"><a href="#如何使用JavaScript？" class="headerlink" title="如何使用JavaScript？"></a>如何使用JavaScript？</h1><hr>
+<h2 id="使用浏览器自带的js引擎："><a href="#使用浏览器自带的js引擎：" class="headerlink" title="使用浏览器自带的js引擎："></a>使用浏览器自带的js引擎：</h2><p>浏览器中包含两个引擎：</p>
+<ul>
+<li>内容排版引擎：负责加载HTML内容，渲染css样式</li>
+<li>js解释器/引擎：负责解释，并执行js程序<br>浏览器控制台：专门调试程序，显示输出结果的浏览器窗口<br>第一行脚本：console.log(“Hello World”);<br>  console指控制台<br>  .翻译为”的”<br>  log是控制台提供的一个现有功能，用来记录一行话<br>ps:控制台编写多行语句：Shift+Enter<br>强调一下：<blockquote>
+<ol>
+<li>js中凡是要输出的正文都要用引号包裹，但单双引号不分</li>
+<li>js区分大小写！js规定小写的名称，就必须小写！</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h2 id="独立安装的js引擎"><a href="#独立安装的js引擎" class="headerlink" title="独立安装的js引擎"></a>独立安装的js引擎</h2><ul>
+<li>node.js   </li>
+<li>V8</li>
+</ul>
+<hr>
+<h1 id="网页中如何编写js"><a href="#网页中如何编写js" class="headerlink" title="网页中如何编写js"></a>网页中如何编写js</h1><ul>
+<li><p>网页中的script元素中：<br> script专门保存js程序的元素<br> script可以写在网页的任何位置，随网页解释执行<br> 脚本：不用编译，直接边解释边执行的程序</p>
+</li>
+<li><p>元素的事件属性中：<br> 事件：用户或浏览器自身触发的动作<br> 事件触发后，才会执行事件处理程序<br> &lt;元素 on事件名=”事件处理程序（js语句）”…<br> &lt;p onclick=”window.alert(‘Hello onclick’)”…</p>
+<pre><code>当单击的时候，请window窗口，弹出警告
+</code></pre></li>
+<li><p>单独的.js文件中集中编写：<br> 执行过程和在script中编写的脚本完全一样！<br> 分2步：</p>
+<ol>
+<li>新建.js文件，包含js程序</li>
+<li>在页面顶端，引入外部js文件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;路径&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="如何调试js程序？"><a href="#如何调试js程序？" class="headerlink" title="如何调试js程序？"></a>如何调试js程序？</h1><ul>
+<li><ol>
+<li>js中错误：只要希望的功能没执行，说明功能出错了<pre><code>***只要出错先开F12（控制台）***
+</code></pre>控制台中包含：错误类型：错误原因     错误位置链接<br>错误现象：出错位置之前的代码——正常执行<br>同一script中出错位置之后的代码——不执行<br>一个script出错，不影响其他位置script的执行<br>程序错误：bug    处理解决错误：debug</li>
+</ol>
+</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年08月21日 11:04</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/19/js学习之起步/" title="js学习之起步">http://NicolasGui.github.io/2017/12/19/js学习之起步/</a></p>
+        <footer>
+            <a href="http://NicolasGui.github.io">
+                <img src="/images/logo.png" alt="Nicolas">
+                Nicolas
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        不信你敢扫~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.png" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.png">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.png">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://NicolasGui.github.io/2017/12/19/js学习之起步/&title=《js学习之起步》 — Don't BB,show me the code!&pic=http://NicolasGui.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://NicolasGui.github.io/2017/12/19/js学习之起步/&title=《js学习之起步》 — Don't BB,show me the code!&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://NicolasGui.github.io/2017/12/19/js学习之起步/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《js学习之起步》 — Don't BB,show me the code!&url=http://NicolasGui.github.io/2017/12/19/js学习之起步/&via=http://NicolasGui.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://NicolasGui.github.io/2017/12/19/js学习之起步/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://NicolasGui.github.io/2017/12/19/js学习之起步/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/All/" class="color4">All</a>
+      
+    <a href="/tags/web前端/" class="color1">web前端</a>
+      
+    <a href="/tags/js/" class="color3">js</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JavaScript的组成"><span class="post-toc-text">JavaScript的组成</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#如何使用JavaScript？"><span class="post-toc-text">如何使用JavaScript？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用浏览器自带的js引擎："><span class="post-toc-text">使用浏览器自带的js引擎：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#独立安装的js引擎"><span class="post-toc-text">独立安装的js引擎</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#网页中如何编写js"><span class="post-toc-text">网页中如何编写js</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#如何调试js程序？"><span class="post-toc-text">如何调试js程序？</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2017/12/19/js学习之基础数据类型/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          js学习之变量&amp;基础数据类型
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/12/19/mac常用命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">mac常用命令</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        
+  <!-- Valine Comments -->
+  <div class="comments vcomment" id="comments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+  <!-- Valine Comments script -->
+  <script>
+      var GUEST_INFO = ['nick','mail','link'];
+      var guest_info = 'nick,mail'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+      });
+      new Valine({
+          el: '#comments',
+          notify: 'false' == 'true',
+          verify: 'false' == 'true',
+          appId: "6x49PQdS7yFOwmbDyeyib2eI-gzGzoHsz",
+          appKey: "SR793Ao76oLNRRSMVEfoxElA",
+          avatar: "mm",
+          placeholder: "Just go go",
+          guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+          pageSize: "10"
+      })
+  </script>
+  <!-- Valine Comments end -->
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+      
+    <div id="footer-info" class="inner">
+        <div class="top">
+            
+
+        </div>
+      <p>
+      &copy; 2018 Nicolas<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://NicolasGui.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/All/">All</a><a class="category-link" href="/categories/All/Hexo/">Hexo</a><a class="category-link" href="/categories/All/mac/">mac</a><a class="category-link" href="/categories/All/tools/">tools</a><a class="category-link" href="/categories/All/vue/">vue</a><a class="category-link" href="/categories/All/面试/">面试</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/All/" style="font-size: 20px;">All</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/js/" style="font-size: 12.5px;">js</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/vue/" style="font-size: 12.5px;">vue</a> <a href="/tags/web前端/" style="font-size: 17.5px;">web前端</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/开发工具/" style="font-size: 10px;">开发工具</a> <a href="/tags/服务器/" style="font-size: 10px;">服务器</a> <a href="/tags/路由/" style="font-size: 10px;">路由</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/All/" style="font-size: 20px;">All</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/js/" style="font-size: 12.5px;">js</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/vue/" style="font-size: 12.5px;">vue</a> <a href="/tags/web前端/" style="font-size: 17.5px;">web前端</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/开发工具/" style="font-size: 10px;">开发工具</a> <a href="/tags/服务器/" style="font-size: 10px;">服务器</a> <a href="/tags/路由/" style="font-size: 10px;">路由</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
