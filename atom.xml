@@ -200,9 +200,9 @@
     
       <category term="All" scheme="/tags/All/"/>
     
-      <category term="vue" scheme="/tags/vue/"/>
-    
       <category term="web前端" scheme="/tags/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="vue" scheme="/tags/vue/"/>
     
       <category term="面试" scheme="/tags/%E9%9D%A2%E8%AF%95/"/>
     
@@ -328,9 +328,9 @@
     
       <category term="All" scheme="/tags/All/"/>
     
-      <category term="vue" scheme="/tags/vue/"/>
-    
       <category term="web前端" scheme="/tags/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="vue" scheme="/tags/vue/"/>
     
       <category term="路由" scheme="/tags/%E8%B7%AF%E7%94%B1/"/>
     
