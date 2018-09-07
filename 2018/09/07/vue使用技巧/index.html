@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>vue使用技巧 | Don&#39;t BB,show me the code!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="vue,web前端,mac,服务器,hexo,github" />
+  
+  <meta name="description" content="vue特性 Vue.js是渐进式框架，采用自底向上增量开发的设计基于MVVM思想。 Vue 完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。 Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。  指令带有前缀 v-，以表示它们是 Vue.js 提供的特殊属性。 站点上动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。">
+<meta name="keywords" content="vue,组件,语法糖">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue使用技巧">
+<meta property="og:url" content="/2018/09/07/vue使用技巧/index.html">
+<meta property="og:site_name" content="Don&#39;t BB,show me the code!">
+<meta property="og:description" content="vue特性 Vue.js是渐进式框架，采用自底向上增量开发的设计基于MVVM思想。 Vue 完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。 Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。  指令带有前缀 v-，以表示它们是 Vue.js 提供的特殊属性。 站点上动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-07T02:56:47.324Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue使用技巧">
+<meta name="twitter:description" content="vue特性 Vue.js是渐进式框架，采用自底向上增量开发的设计基于MVVM思想。 Vue 完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。 Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。  指令带有前缀 v-，以表示它们是 Vue.js 提供的特殊属性。 站点上动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+	
+	
+	
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Nicolas&#39;s blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Nicolas&#39;s blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        如果第一次失败了，那这是1.0版，继续加油
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Nicolas" target="_blank" href="//htmler.cn">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/Givingcode">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/512567097">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-vue使用技巧" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      vue使用技巧
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/vue/">vue</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-09-07
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="vue特性"><a href="#vue特性" class="headerlink" title="vue特性"></a>vue特性</h3><ul>
+<li>Vue.js是渐进式框架，采用自底向上增量开发的设计基于MVVM思想。</li>
+<li>Vue 完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。</li>
+<li>Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。 </li>
+<li>指令带有前缀 v-，以表示它们是 Vue.js 提供的特殊属性。</li>
+<li>站点上动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。</li>
+<li>请只对可信内容使用 HTML 插值，绝不要对用户提供的内容插值。</li>
+<li>当一个 ViewModel 被销毁时，所有的事件处理器都会自动被删除</li>
+</ul>
+<h3 id="vue技巧"><a href="#vue技巧" class="headerlink" title="vue技巧"></a>vue技巧</h3><h5 id="动态数据"><a href="#动态数据" class="headerlink" title="动态数据"></a>动态数据</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.set(object, key, value) <span class="comment">//动态响应的数据；如：</span></span><br><span class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.someObject,<span class="string">'b'</span>,<span class="number">2</span>)</span><br><span class="line">    Vue.set(vm.someObject, <span class="string">'b'</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="向已有对象上添加一些属性："><a href="#向已有对象上添加一些属性：" class="headerlink" title="向已有对象上添加一些属性："></a>向已有对象上添加一些属性：</h4><p>使用 Object.assign() 或 _.extend() 方法来添加属性，但是添加到对象上的新属性不会触发更新；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 代替 `Object.assign(this.someObject, &#123; a: 1, b: 2 &#125;)`</span></span><br><span class="line"><span class="keyword">this</span>.someObject = <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="keyword">this</span>.someObject, &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="事件相关"><a href="#事件相关" class="headerlink" title="事件相关"></a>事件相关</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 阻止事件冒泡--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">v-on:submit.stop</span>=<span class="string">"onSubmit"</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span> </span><br><span class="line"><span class="comment">&lt;!-- 阻止默认行为--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">v-on:submit.prevent</span>=<span class="string">"onSubmit"</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span> </span><br><span class="line"><span class="comment">&lt;!-- 阻止单击事件冒泡 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click.stop</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 提交事件不再重载页面 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">v-on:submit.prevent</span>=<span class="string">"onSubmit"</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 修饰符可以串联  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click.stop.prevent</span>=<span class="string">"doThat"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 只有修饰符 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">v-on:submit.prevent</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 添加事件侦听器时使用时间捕获模式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:click.capture</span>=<span class="string">"doThis"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 只当事件在该元素本身（而不是子元素）触发时触发回调 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:click.self</span>=<span class="string">"doThat"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 键盘事件,按键修饰符 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-on:keyup.13</span>=<span class="string">"submit"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="可以通过全局-config-keyCodes-对象自定义按键修饰符别名："><a href="#可以通过全局-config-keyCodes-对象自定义按键修饰符别名：" class="headerlink" title="可以通过全局 config.keyCodes 对象自定义按键修饰符别名："></a>可以通过全局 config.keyCodes 对象自定义按键修饰符别名：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.config.keyCodes.f1 = <span class="number">112</span>(可以使用 v-on:keyup.f1)</span><br></pre></td></tr></table></figure>
+<h4 id="computed和methods的区别；"><a href="#computed和methods的区别；" class="headerlink" title="computed和methods的区别；"></a>computed和methods的区别；</h4><p>计算属性是基于它的依赖缓存，计算属性只有在它的相关依赖发生改变时才会重新取值。这就意味着只要 message 没有发生改变，多次访问 reversedMessage计算属性会立即返回之前的计算结果，而不必再次执行函数。<br>而methods需要每次执行；如果你不希望有缓存，请用 method 替代。 </p>
+<h4 id="表单操作"><a href="#表单操作" class="headerlink" title="表单操作"></a>表单操作</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--自动将用户的输入值转为 Number 类型--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.number</span>=<span class="string">"age"</span> <span class="attr">type</span>=<span class="string">"number"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--去空格处理，免去校验--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.trim</span>=<span class="string">"msg"</span>&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!--v-model 在 input 事件中同步输入框的值与数据,转变为在 change 事件中同步--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.lazy</span>=<span class="string">"msg"</span> &gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="显示隐藏"><a href="#显示隐藏" class="headerlink" title="显示隐藏"></a>显示隐藏</h4><p>一般来说， v-if 有更高的切换消耗而 v-show 有更高的初始渲染消耗。<br>因此，如果需要频繁切换使用 v-show 较好，如果在运行时条件不大可能改变则使用 v-if 较好。</p>
+<h4 id="组件传参"><a href="#组件传参" class="headerlink" title="组件传参"></a>组件传参</h4><p>父组件通过 props 向下传递数据给子组件，子组件通过 events 给父组件发送消息。<br>支持传值类型;<br>type 可以是下面原生构造器：<br>• String<br>• Number<br>• Boolean<br>• Function<br>• Object<br>• Array<br>type 也可以是一个自定义构造器，使用 instanceof 检测。<br>使用 $on(eventName) 监听事件<br>使用 $emit(eventName) 触发事件<br>父组件可以在使用子组件的地方直接用 v-on 来监听子组件触发的事件<br>在某个组件的根元素上监听一个原生事件：<br>my-component v-on:click.native=”doTheThing”&gt;<br>自定义事件也可以用来创建自定义的表单输入组件，使用 v-model 来进行数据双向绑定。牢记，表单控件进行数据绑定时的语法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-bind:value</span>=<span class="string">"something"</span> <span class="attr">v-on:input</span>=<span class="string">"something = $event.target.value"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>有时候非父子关系的组件也需要通信。在简单的场景下，使用一个空的 Vue 实例作为中央事件总线：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bus = <span class="keyword">new</span> Vue()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 触发组件 A 中的事件 </span></span><br><span class="line">bus.$emit(<span class="string">'id-selected'</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在组件 B 创建的钩子中监听事件 </span></span><br><span class="line">bus.$on(<span class="string">'id-selected'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>&#123;</span><br><span class="line"><span class="comment">// ... </span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>在更多复杂的情况下，你应该考虑使用专门的 状态管理模式vuex(建议用此方法管理数据状态变化).<br>如果把切换出去的组件保留在内存中，可以保留它的状态或避免重新渲染<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"currentView"</span>&gt;</span> </span><br><span class="line">  <span class="comment">&lt;!-- 非活动组件将被缓存！ --&gt;</span> </span><br><span class="line">  <span class="tag">&lt;/<span class="name">component</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>动态组件用is绑定:多个组件可以使用同一个挂载点，然后动态地在它们之间切换<br>1.ref 是一个数组或对象，包含相应的子组件。<br>2.$refs 只在组件渲染完成后才填充，并且它是非响应式的，应当避免在模版或计算属性中使用 $refs 。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年09月07日 10:56</p>
+        <p>原始链接： <a class="post-url" href="/2018/09/07/vue使用技巧/" title="vue使用技巧">/2018/09/07/vue使用技巧/</a></p>
+        <footer>
+            <a href="">
+                <img src="/images/logo.png" alt="Nicolas">
+                Nicolas
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        不信你敢扫~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.png" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.png">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.png">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=/2018/09/07/vue使用技巧/&title=《vue使用技巧》 — Don't BB,show me the code!&pic=images/router.jpeg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=/2018/09/07/vue使用技巧/&title=《vue使用技巧》 — Don't BB,show me the code!&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=/2018/09/07/vue使用技巧/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue使用技巧》 — Don't BB,show me the code!&url=/2018/09/07/vue使用技巧/&via=" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=/2018/09/07/vue使用技巧/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=/2018/09/07/vue使用技巧/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/vue/" class="color4">vue</a>
+      
+    <a href="/tags/组件/" class="color3">组件</a>
+      
+    <a href="/tags/语法糖/" class="color4">语法糖</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vue特性"><span class="post-toc-text">vue特性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vue技巧"><span class="post-toc-text">vue技巧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#动态数据"><span class="post-toc-text">动态数据</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#向已有对象上添加一些属性："><span class="post-toc-text">向已有对象上添加一些属性：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#事件相关"><span class="post-toc-text">事件相关</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#可以通过全局-config-keyCodes-对象自定义按键修饰符别名："><span class="post-toc-text">可以通过全局 config.keyCodes 对象自定义按键修饰符别名：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#computed和methods的区别；"><span class="post-toc-text">computed和methods的区别；</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#表单操作"><span class="post-toc-text">表单操作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#显示隐藏"><span class="post-toc-text">显示隐藏</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#组件传参"><span class="post-toc-text">组件传参</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/07/vue移动端屏幕适配解决方案new/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">vue移动端屏幕适配解决方案new</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        
+  <!-- Valine Comments -->
+  <div class="comments vcomment" id="comments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+  <!-- Valine Comments script -->
+  <script>
+      var GUEST_INFO = ['nick','mail','link'];
+      var guest_info = 'nick,mail'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+      });
+      new Valine({
+          el: '#comments',
+          notify: 'false' == 'true',
+          verify: 'false' == 'true',
+          appId: "6x49PQdS7yFOwmbDyeyib2eI-gzGzoHsz",
+          appKey: "SR793Ao76oLNRRSMVEfoxElA",
+          avatar: "mm",
+          placeholder: "Just go go",
+          guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+          pageSize: "10"
+      })
+  </script>
+  <!-- Valine Comments end -->
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+      
+    <div id="footer-info" class="inner">
+        <div class="top">
+            
+
+        </div>
+      <p>
+      &copy; 2018 Nicolas<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Hexo/">Hexo</a><a class="category-link" href="/categories/js/">js</a><a class="category-link" href="/categories/mac/">mac</a><a class="category-link" href="/categories/tools/">tools</a><a class="category-link" href="/categories/vue/">vue</a><a class="category-link" href="/categories/面试/">面试</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/js/" style="font-size: 12.5px;">js</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/vue/" style="font-size: 17.5px;">vue</a> <a href="/tags/web前端/" style="font-size: 20px;">web前端</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/开发工具/" style="font-size: 10px;">开发工具</a> <a href="/tags/服务器/" style="font-size: 10px;">服务器</a> <a href="/tags/移动端/" style="font-size: 12.5px;">移动端</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/语法糖/" style="font-size: 10px;">语法糖</a> <a href="/tags/路由/" style="font-size: 10px;">路由</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/js/" style="font-size: 12.5px;">js</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/vue/" style="font-size: 17.5px;">vue</a> <a href="/tags/web前端/" style="font-size: 20px;">web前端</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/开发工具/" style="font-size: 10px;">开发工具</a> <a href="/tags/服务器/" style="font-size: 10px;">服务器</a> <a href="/tags/移动端/" style="font-size: 12.5px;">移动端</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/语法糖/" style="font-size: 10px;">语法糖</a> <a href="/tags/路由/" style="font-size: 10px;">路由</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
