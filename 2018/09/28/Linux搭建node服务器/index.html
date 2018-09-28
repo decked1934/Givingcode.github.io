@@ -3,18 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Don&#39;t BB,show me the code!</title>
+  <title>Ubuntu搭建node服务器 | Don&#39;t BB,show me the code!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="vue,web前端,mac,服务器,hexo,github" />
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Don&#39;t BB,show me the code!">
-<meta property="og:url" content="/page/2/index.html">
+  <meta name="description" content="用apt-get安装node和mpm：123sudo apt-get install nodejssudo apt-get install npm 然后测试nodejs的版本和包管理器npm的版本node -v、npm -v。这时候测试出来node应该是4.x的，显然不是我们想要的，接下来需要对node进行升级首先安装一个模块叫n，是专门用来管理node.js的版本的1sudo npm insta">
+<meta name="keywords" content="服务器,node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu搭建node服务器">
+<meta property="og:url" content="/2018/09/28/Linux搭建node服务器/index.html">
 <meta property="og:site_name" content="Don&#39;t BB,show me the code!">
+<meta property="og:description" content="用apt-get安装node和mpm：123sudo apt-get install nodejssudo apt-get install npm 然后测试nodejs的版本和包管理器npm的版本node -v、npm -v。这时候测试出来node应该是4.x的，显然不是我们想要的，接下来需要对node进行升级首先安装一个模块叫n，是专门用来管理node.js的版本的1sudo npm insta">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-28T06:57:21.378Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Don&#39;t BB,show me the code!">
+<meta name="twitter:title" content="Ubuntu搭建node服务器">
+<meta name="twitter:description" content="用apt-get安装node和mpm：123sudo apt-get install nodejssudo apt-get install npm 然后测试nodejs的版本和包管理器npm的版本node -v、npm -v。这时候测试出来node应该是4.x的，显然不是我们想要的，接下来需要对node进行升级首先安装一个模块叫n，是专门用来管理node.js的版本的1sudo npm insta">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -124,208 +129,149 @@
 
 
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-    <article id="post-web前端面试题" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Linux搭建node服务器" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/18/web前端面试题/"  >web前端面试题-2017</a>
+    <h1 class="post-title" itemprop="name">
+      Ubuntu搭建node服务器
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/服务器/">服务器</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-09-28
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
           
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/面试/">面试</a>
-                  
-              </span>
-          
       </header>
     
-    <div class="article-entry " itemprop="articleBody">
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        <div class="article-img">
-            <a href="/2017/12/18/web前端面试题/" >
-                
-                <img src="/images/interview.jpeg" alt="web前端面试题-2017" title="web前端面试题-2017">
-                
+            
+            <p>用apt-get安装node和mpm：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br><span class="line"></span><br><span class="line">sudo apt-get install npm</span><br></pre></td></tr></table></figure></p>
+<p>然后测试nodejs的版本和包管理器npm的版本node -v、npm -v。<br>这时候测试出来node应该是4.x的，显然不是我们想要的，接下来需要对node进行升级<br>首先安装一个模块叫n，是专门用来管理node.js的版本的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g n</span><br></pre></td></tr></table></figure></p>
+<p>然后，用n升级node.js到最新稳定版<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo n stable</span><br></pre></td></tr></table></figure></p>
+<p>旧版本的 npm，也可以很容易地通过 npm 命令来升级，命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install npm -g</span><br></pre></td></tr></table></figure></p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年09月28日 14:57</p>
+        <p>原始链接： <a class="post-url" href="/2018/09/28/Linux搭建node服务器/" title="Ubuntu搭建node服务器">/2018/09/28/Linux搭建node服务器/</a></p>
+        <footer>
+            <a href="">
+                <img src="/images/logo.png" alt="Nicolas">
+                Nicolas
             </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                基础部分一个优秀的前端开发人员需要具备哪些特质？
-学习能力
-代码可维护性
-代码规范性
-解决问题的能力
-沟通能力
+        </footer>
+    </div>
+</div>
 
-常见的布局方式有哪些？
-table布局
-流式布局
-弹性布局
-响应式布局
-
-css预加载的使用？less、sacc
-常见的解决浏览器兼容性问题的方式有哪些？html5有哪些新特性及其使用场合？如何解决兼容性问题介绍一下标准的css的盒子模型？如何居中div，如何...
-            </p>
-        </div>
       
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        不信你敢扫~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.png" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.png">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.png">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
         
     </div>
     <footer class="article-footer">
         
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2017-12-18</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/web前端/" class="color1">web前端</a>
-      
-    <a href="/tags/面试/" class="color3">面试</a>
-      
-  </li>
-
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=/2018/09/28/Linux搭建node服务器/&title=《Ubuntu搭建node服务器》 — Don't BB,show me the code!&pic=images/start.jpeg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=/2018/09/28/Linux搭建node服务器/&title=《Ubuntu搭建node服务器》 — Don't BB,show me the code!&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=/2018/09/28/Linux搭建node服务器/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu搭建node服务器》 — Don't BB,show me the code!&url=/2018/09/28/Linux搭建node服务器/&via=" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=/2018/09/28/Linux搭建node服务器/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         </ul>
-        
-            <a href="/2017/12/18/web前端面试题/#more" class="article-more-link" >阅读全文&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=/2018/09/28/Linux搭建node服务器/" alt="微信分享二维码">
+</div>
 
+<div class="mask"></div>
 
-  
-    <article id="post-前端开发工具" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/26/前端开发工具/"  >前端常用开发工具</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/tools/">tools</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2017/04/26/前端开发工具/" >
-                
-                <img src="/images/web.jpeg" alt="前端常用开发工具" title="前端常用开发工具">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                简介本文分享了前端常用开发工具以及在开发/过程中常用软件，收费软件附带破解，免费且百度能下载的软件烦请自行百度下载
-
-软件列表开发类
-Webstrom
-editplus
-JDK1.7
-adt-bundle
-MindManager
-Fireworks_cs6
-Adobe Photoshop CC 2017
-代码压缩工具
-node6.10
-颜色拾取器
-xampp
-topspe...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
         
         <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2017-04-26</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/web前端/" class="color1">web前端</a>
-      
-    <a href="/tags/开发工具/" class="color5">开发工具</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2017/04/26/前端开发工具/#more" class="article-more-link" >阅读全文&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-使用mac自带阿帕奇" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/24/使用mac自带阿帕奇/"  >使用mac自带阿帕奇</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/mac/">mac</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2017/02/24/使用mac自带阿帕奇/" >
-                
-                <img src="/images/apache.jpeg" alt="使用mac自带阿帕奇" title="使用mac自带阿帕奇">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                简介Apache对于前端程序员来说是必不可少的一款web服务器，Mac系统自身带了apache，可以直接用来搭建本地web服务器，配置过程相对比较简单，本文将做简要描述，开始吧
-启动Apachemac是默认自动启动Apache的，判断mac是否启动了Apache很简单，浏览器地址栏输入http://127.0.0.1   回车即可，如果页面显示It works！证明ok，...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2017-02-24</li>
             
             
   <li class="article-footer-tags">
@@ -333,92 +279,58 @@ topspe...
       
     <a href="/tags/服务器/" class="color4">服务器</a>
       
-    <a href="/tags/mac/" class="color4">mac</a>
+    <a href="/tags/node/" class="color5">node</a>
       
   </li>
 
         </ul>
-        
-            <a href="/2017/02/24/使用mac自带阿帕奇/#more" class="article-more-link" >阅读全文&gt;&gt;</a>
         
     </footer>
   </div>
 </article>
 
 
+
+<nav id="article-nav">
   
-    <article id="post-vue-router" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    <a href="/2018/09/07/vue使用技巧/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">vue使用技巧</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
     
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/26/vue-router/"  >vue-router插件</a>
-    </h1>
-  
+  <!-- Valine Comments -->
+  <div class="comments vcomment" id="comments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+  <!-- Valine Comments script -->
+  <script>
+      var GUEST_INFO = ['nick','mail','link'];
+      var guest_info = 'nick,mail'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+      });
+      new Valine({
+          el: '#comments',
+          notify: 'false' == 'true',
+          verify: 'false' == 'true',
+          appId: "6x49PQdS7yFOwmbDyeyib2eI-gzGzoHsz",
+          appKey: "SR793Ao76oLNRRSMVEfoxElA",
+          avatar: "mm",
+          placeholder: "Just go go",
+          guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+          pageSize: "10"
+      })
+  </script>
+  <!-- Valine Comments end -->
 
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/vue/">vue</a>
-                  
-              </span>
-          
-      </header>
+
     
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2017/01/26/vue-router/" >
-                
-                <img src="/images/router.jpeg" alt="vue-router插件" title="vue-router插件">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                简介vue-router就是SPA（单页应用）的路径管理器。通俗的说，vue-router就是我们WebApp的链接路径管理系统。它跟前端的a标签区别是什么？因为我们用Vue做的是单页应用，就相当于只有一个主的index.html页面，所以你写的a标签是不起作用的，你必须使用vue-router来对路径进行管理。
-安装vue-routervue-router是一个插件，所...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2017-01-26</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/web前端/" class="color1">web前端</a>
-      
-    <a href="/tags/vue/" class="color4">vue</a>
-      
-    <a href="/tags/路由/" class="color3">路由</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2017/01/26/vue-router/#more" class="article-more-link" >阅读全文&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/"><< Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
 </section>
         
       </div>
@@ -442,7 +354,7 @@ topspe...
   var mihoConfig = {
       root: "",
       animate: true,
-      isHome: true,
+      isHome: false,
       share: true,
       reward: 1
   }
@@ -544,6 +456,11 @@ topspe...
   <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
   <script src="/js/animate.js"></script>
 
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
 
   </div>
 </body>
