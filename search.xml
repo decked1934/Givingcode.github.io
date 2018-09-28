@@ -164,6 +164,29 @@
     </entry>
     
     <entry>
+      <title>Ubuntu搭建node服务器</title>
+      <link href="/2017/12/19/Linux%E6%90%AD%E5%BB%BAnode%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+      <url>/2017/12/19/Linux%E6%90%AD%E5%BB%BAnode%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+      <content type="html"><![CDATA[<p>用apt-get安装node和mpm：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br><span class="line"></span><br><span class="line">sudo apt-get install npm</span><br></pre></td></tr></table></figure></p><p>然后测试nodejs的版本和包管理器npm的版本node -v、npm -v。<br>这时候测试出来node应该是4.x的，显然不是我们想要的，接下来需要对node进行升级<br>首先安装一个模块叫n，是专门用来管理node.js的版本的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g n</span><br></pre></td></tr></table></figure></p><p>然后，用n升级node.js到最新稳定版<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo n stable</span><br></pre></td></tr></table></figure></p><p>旧版本的 npm，也可以很容易地通过 npm 命令来升级，命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install npm -g</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      <categories>
+          
+          <category> 服务器 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 服务器 </tag>
+            
+            <tag> node </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>mac常用命令</title>
       <link href="/2017/12/19/mac%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
       <url>/2017/12/19/mac%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
