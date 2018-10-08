@@ -64,9 +64,9 @@
       <category term="服务器" scheme="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
     
-      <category term="vpn" scheme="/tags/vpn/"/>
-    
       <category term="ec2" scheme="/tags/ec2/"/>
+    
+      <category term="vpn" scheme="/tags/vpn/"/>
     
   </entry>
   
