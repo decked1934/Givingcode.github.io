@@ -421,7 +421,7 @@
   <!-- Valine Comments script -->
   <script>
       var GUEST_INFO = ['nick','mail','link'];
-      var guest_info = 'nick,mail'.split(',').filter(function(item){
+      var guest_info = 'nick,mail,link'.split(',').filter(function(item){
         return GUEST_INFO.indexOf(item) > -1
       });
       new Valine({
@@ -430,8 +430,8 @@
           verify: 'false' == 'true',
           appId: "6x49PQdS7yFOwmbDyeyib2eI-gzGzoHsz",
           appKey: "SR793Ao76oLNRRSMVEfoxElA",
-          avatar: "mm",
-          placeholder: "Just go go",
+          avatar: "robohash",
+          placeholder: "Talk is cheap,show me the code!",
           guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
           pageSize: "10"
       })
