@@ -49,10 +49,10 @@
   
   <entry>
     <title>RedHat常规操作</title>
-    <link href="/2018/09/29/CentOS7%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/"/>
-    <id>/2018/09/29/CentOS7常规操作/</id>
+    <link href="/2018/09/29/RedHat%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/"/>
+    <id>/2018/09/29/RedHat常规操作/</id>
     <published>2018-09-29T08:13:03.000Z</published>
-    <updated>2018-10-11T12:04:13.177Z</updated>
+    <updated>2018-10-11T12:05:32.921Z</updated>
     
     <content type="html"><![CDATA[<h3 id="RedHat设置网络开机自动连接"><a href="#RedHat设置网络开机自动连接" class="headerlink" title="RedHat设置网络开机自动连接"></a>RedHat设置网络开机自动连接</h3><ol><li><p>切换到root账户</p></li><li><p>安装网络工具</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y net-tools\*</span><br></pre></td></tr></table></figure></li><li><p>使用vim修改 /etc/sysconfig/network-scripts/ifcfg-enpxxxxxx文件<br>ifcfg-enpxxxxxx文件为你的网卡名配置文件<br>将文件最后一行的ONBOOT= no改为yes，保存即可。<br>个别情况下，为了后期远程连接方便，我们可以做如下更改<br>修改上边文件 ：BOOTPROTO=static<br>同时文件的最后添加以下内容：<br>IPADDR=176.202.123.234 #静态IP<br>GATEWAY=176.202.123.1 #默认网关<br>NETMASK=255.255.255.0 #子网掩码<br>DNS1=176.202.0.227 #DNS 配置</p></li></ol><p>ps：以上参数根据自己网段设置即可</p><ol start="4"><li>设置完毕以后，重启网卡<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service network restart</span><br></pre></td></tr></table></figure></li></ol>]]></content>
     
@@ -70,33 +70,6 @@
     
     
       <category term="Linux" scheme="/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu搭建node服务器</title>
-    <link href="/2018/09/28/Linux%E6%90%AD%E5%BB%BAnode%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    <id>/2018/09/28/Linux搭建node服务器/</id>
-    <published>2018-09-28T06:26:06.000Z</published>
-    <updated>2018-09-28T06:58:18.856Z</updated>
-    
-    <content type="html"><![CDATA[<p>用apt-get安装node和npm：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br><span class="line"></span><br><span class="line">sudo apt-get install npm</span><br></pre></td></tr></table></figure></p><p>然后测试nodejs的版本和包管理器npm的版本node -v、npm -v。<br>这时候测试出来node应该是4.x的，显然不是我们想要的，接下来需要对node进行升级<br>首先安装一个模块叫n，是专门用来管理node.js的版本的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g n</span><br></pre></td></tr></table></figure></p><p>然后，用n升级node.js到最新稳定版<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo n stable</span><br></pre></td></tr></table></figure></p><p>旧版本的 npm，也可以很容易地通过 npm 命令来升级，命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install npm -g</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;用apt-get安装node和npm：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line
-      
-    
-    </summary>
-    
-      <category term="服务器" scheme="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-    
-      <category term="服务器" scheme="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-      <category term="node" scheme="/tags/node/"/>
     
   </entry>
   
@@ -437,9 +410,9 @@
       <category term="mac" scheme="/categories/mac/"/>
     
     
-      <category term="服务器" scheme="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
       <category term="mac" scheme="/tags/mac/"/>
+    
+      <category term="服务器" scheme="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
