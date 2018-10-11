@@ -1723,6 +1723,9 @@ body {
 #page-nav .space {
   color: #ddd;
 }
+.info {
+  display: none !important;
+}
 #footer {
   background: rgba(255,255,255,0.7);
   padding: 5px 0;
