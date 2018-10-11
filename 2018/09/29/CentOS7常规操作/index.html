@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Don&#39;t BB,show me the code!">
 <meta property="og:description" content="CentOS 7设置网络开机自动连接 切换到root账户  安装网络工具 1yum install -y net-tools\*  使用vim修改 /etc/sysconfig/network-scripts/ifcfg-enpxxxxxx文件ifcfg-enpxxxxxx文件为你的网卡名配置文件将文件最后一行的ONBOOT= no改为yes，保存即可。个别情况下，为了后期远程连接方便，我们可以做">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-10T14:03:18.203Z">
+<meta property="og:updated_time" content="2018-10-11T01:12:36.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7常规操作">
 <meta name="twitter:description" content="CentOS 7设置网络开机自动连接 切换到root账户  安装网络工具 1yum install -y net-tools\*  使用vim修改 /etc/sysconfig/network-scripts/ifcfg-enpxxxxxx文件ifcfg-enpxxxxxx文件为你的网卡名配置文件将文件最后一行的ONBOOT= no改为yes，保存即可。个别情况下，为了后期远程连接方便，我们可以做">
@@ -253,10 +253,31 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<h1 id="搭建vpn"><a href="#搭建vpn" class="headerlink" title="搭建vpn"></a>搭建vpn</h1><ol>
+<li><p>安装wget</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装setuptools</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://bootstrap.pypa.io/ez_setup.py</span><br><span class="line">sudo python ez_setup.py --insecure</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载pip安装包，解压到某个位置，我这里下载的是18.1版本，然后就可以安装了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 下载压缩包</span><br><span class="line">wget https://pypi.python.org/packages/11/b6/abcb525026a4be042b486df43905d6893fb04f05aac21c32c638e939e447/pip-18.1.tar.gz#md5=35f01da33009719497f01a4ba69d63c9</span><br><span class="line"># 解压压缩包</span><br><span class="line">tar -xf pip-18.1.tar.gz</span><br><span class="line"># 切换路径</span><br><span class="line">cd pip-18.1</span><br><span class="line"># 安装</span><br><span class="line">sudo python setup.py install</span><br><span class="line"># 添加引用</span><br><span class="line">ln -s /usr/local/python27/bin/pip /usr/bin/pip</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装shadowsocks</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加shadowsocks配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir /etc/shadowsocks/</span><br><span class="line">cd /etc/shadowsocks/</span><br><span class="line">vi config.json</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>粘贴如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;    </span><br><span class="line">  &quot;server&quot;:&quot;0.0.0.0&quot;,</span><br><span class="line">  &quot;server_port&quot;:8388,</span><br><span class="line">  &quot;local_port&quot;:1080,     </span><br><span class="line">  &quot;password&quot;:&quot;把这段汉字替换为你的vpn连接密码&quot;,</span><br><span class="line">  &quot;timeout&quot;:600,    </span><br><span class="line">  &quot;method&quot;:&quot;aes-256-cfb&quot;,</span><br><span class="line">  &quot;fast_open&quot;:false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol start="6">
+<li>启动服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks/config.json -d start</span><br></pre></td></tr></table></figure></li>
+</ol>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年10月10日 22:03</p>
+        <p>最后更新： 2018年10月11日 09:12</p>
         <p>原始链接： <a class="post-url" href="/2018/09/29/CentOS7常规操作/" title="CentOS 7常规操作">/2018/09/29/CentOS7常规操作/</a></p>
         <footer>
             <a href="">
@@ -374,7 +395,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CentOS-7设置网络开机自动连接"><span class="post-toc-text">CentOS 7设置网络开机自动连接</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#切换pem登陆方式为用户名密码登陆"><span class="post-toc-text">切换pem登陆方式为用户名密码登陆</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#搭建ftp服务器"><span class="post-toc-text">搭建ftp服务器</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CentOS-7设置网络开机自动连接"><span class="post-toc-text">CentOS 7设置网络开机自动连接</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#切换pem登陆方式为用户名密码登陆"><span class="post-toc-text">切换pem登陆方式为用户名密码登陆</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#搭建ftp服务器"><span class="post-toc-text">搭建ftp服务器</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#搭建vpn"><span class="post-toc-text">搭建vpn</span></a></li></ol>
         </nav>
     </aside>
     
