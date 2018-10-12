@@ -222,7 +222,8 @@
 <li>启动服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks/config.json -d start</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="安装阿帕奇"><a href="#安装阿帕奇" class="headerlink" title="安装阿帕奇"></a>安装阿帕奇</h3><ol>
+<h3 id="安装阿帕奇"><a href="#安装阿帕奇" class="headerlink" title="安装阿帕奇"></a>安装阿帕奇</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 安装阿帕奇</span><br><span class="line">yum install  httpd  -y</span><br><span class="line"># 开启服务</span><br><span class="line">systemctl start httpd</span><br></pre></td></tr></table></figure>
+<ol>
 <li>添加阿帕奇工作空间<br>修改/etc/httpd/conf/httpd.conf配置文件<br>指定阿帕奇workspace为/var/www/html<br>修改前<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory&gt;</span><br><span class="line">   AllowOverride none</span><br><span class="line">   Require all denied</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -252,7 +253,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年10月12日 14:53</p>
+        <p>最后更新： 2018年10月12日 14:58</p>
         <p>原始链接： <a class="post-url" href="/2018/10/11/AWS搭建EC2/" title="AWS搭建EC2">/2018/10/11/AWS搭建EC2/</a></p>
         <footer>
             <a href="">
