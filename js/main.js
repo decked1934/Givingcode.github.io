@@ -193,7 +193,23 @@
         Blog.showSidebarBox(false);
         sideMenuBoxIsOpen = true;
     });
-
+    // 标题栏切换
+    var OriginTitile = document.title;
+    var titleTime;
+    document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+        $('[rel="icon"]').attr('href', "/img/TEP.ico");
+        document.title = '死鬼去哪里了';
+        clearTimeout(titleTime);
+    }
+    else {
+        $('[rel="icon"]').attr('href', "/favicon.ico");
+        document.title = '(つェ⊂)咦!又好了!' + OriginTitile;
+        titleTime = setTimeout(function () {
+            document.title = OriginTitile;
+        }, 2000);
+    }
+    });
     //回到顶部点击事件
     backTop.click(function () {
         body.animate({
