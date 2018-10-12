@@ -199,7 +199,7 @@
     document.addEventListener('visibilitychange', function () {
     if (document.hidden) {
         $('[rel="icon"]').attr('href', "/favicon.ico");
-        document.title = '╭(°A°`)╮死鬼去哪里了';
+        document.title = '死鬼去哪里了';
         clearTimeout(titleTime);
     }
     else {
