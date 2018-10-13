@@ -243,7 +243,33 @@
     if (w.mihoConfig.share) {
         Blog.share();
     }
-
+    var a_idx = 0; 
+    jQuery(document).ready(function($) { 
+        $("body").click(function(e) { 
+            var a = new Array("世上无难事，只要肯放弃", "有时候你不努力一下，你都不知道什么叫绝望", "只要是石头，哪里都不会发光", "什么是离婚的主要原因？结婚", "上帝为你关上一道门的同时，还会顺带夹你的脑子", "只要你肯努力，没有什么是你不能搞砸的？", "别减肥了，你丑并不是因为胖" ,"点赞评论666", "不开心你就扫码打赏", "别点了，下方扫码", "不信你敢扫", "扫一个试试"); 
+            var $i = $("<span/>").text(a[a_idx]); 
+            a_idx = (a_idx + 1) % a.length; 
+            var x = e.pageX, 
+            y = e.pageY; 
+            $i.css({ 
+                "z-index": 99999, 
+                "top": y - 20, 
+                "left": x, 
+                "position": "absolute", 
+                "font-weight": "bold", 
+                "color": "#0cc"
+            }); 
+            $("body").append($i); 
+            $i.animate({ 
+                "top": y - 180, 
+                "opacity": 0 
+                }, 
+                1500, 
+                function() { 
+                    $i.remove(); 
+            }); 
+        }); 
+    }); 
     //Reward
     if (w.mihoConfig.reward === 1 || w.mihoConfig.reward === 2) {
         Blog.reward();

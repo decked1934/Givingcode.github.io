@@ -121,6 +121,13 @@ html,
 body,
 #container {
   height: 100%;
+  cursor: url("/animals_black_widow_32px_543579_easyicon.net.ico"), auto;
+}
+a {
+  cursor: url("/smile.ico"), auto !important;
+}
+a:hover {
+  color: #f00 !important;
 }
 body {
   font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
