@@ -555,7 +555,6 @@ body {
   -webkit-transform: rotate(360deg); /* Safari and Chrome */
 }
 .header-info {
-  cursor: pointer;
   margin: 15px 0;
 }
 #header-title,
@@ -583,7 +582,6 @@ body {
   letter-spacing: 5px;
 }
 .header-nav {
-  cursor: pointer;
   margin: 8px 0;
 }
 .header-nav .social {
@@ -657,7 +655,6 @@ body {
   height: 14px;
   padding: 20px 15px;
   position: relative;
-  cursor: pointer;
 }
 .main-nav-link {
   font-weight: 300;
@@ -2084,7 +2081,6 @@ pre .javascript .function {
     background: rgba(0,0,0,0.9);
     border-radius: 8px;
     color: #fff;
-    cursor: default;
     z-index: 1;
     visibility: hidden;
     border: none;
@@ -2275,7 +2271,6 @@ pre .javascript .function {
 }
 .sidebar div {
   display: block;
-  cursor: pointer;
   width: 48px;
   height: 48px;
   text-align: center;
@@ -2441,7 +2436,6 @@ pre .javascript .function {
   padding: 1px 10px;
   font-size: 20px;
   color: #666;
-  cursor: pointer;
 }
 .search-wrap .search-close:hover {
   color: #fff;
@@ -3077,7 +3071,6 @@ pre .javascript .function {
   text-align: center;
   border: 1px solid #e6e6e6;
   border-radius: 4px;
-  cursor: pointer;
 }
 .reward-content .reward-select .reward-select-item img {
   vertical-align: middle;
